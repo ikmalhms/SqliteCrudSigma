@@ -28,7 +28,7 @@ public class UpdateBiodata extends AppCompatActivity {
         text4 = (EditText) findViewById(R.id.editText4);
         text5 = (EditText) findViewById(R.id.editText5);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        cursor = db.rawQuery("SELECT * FROM biodata WHERE nama = '" +
+        cursor = db.rawQuery("SELECT * FROM barang WHERE nama = '" +
                 getIntent().getStringExtra("nama") + "'", null);
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
@@ -47,7 +47,7 @@ public class UpdateBiodata extends AppCompatActivity {
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("update biodata set nama='" +
+                db.execSQL("update barang set nama='" +
                         text2.getText().toString() + "', tgl='" +
                         text3.getText().toString() + "', jk='" +
                         text4.getText().toString() + "', alamat='" +

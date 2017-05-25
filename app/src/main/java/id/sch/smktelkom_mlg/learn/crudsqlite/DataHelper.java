@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class DataHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "biodatadiri.db";
+    private static final String DATABASE_NAME = "kelontong.db";
     private static final int DATABASE_VERSION = 1;
 
     public DataHelper(Context context) {
@@ -18,10 +18,10 @@ public class DataHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
-        String sql = "create table biodata(no integer primary key, nama text null, tgl text null, jk text null, alamat text null);";
+        String sql = "create table barang(no integer primary key, nama text null, tgl text null, jk text null, alamat text null);";
         Log.d("Data", "onCreate: " + sql);
         db.execSQL(sql);
-        sql = "INSERT INTO biodata (no, nama, tgl, jk, alamat) VALUES ('1', 'Kemal Hamas', '1999-07-12', 'Laki-laki','Probolinggo');";
+        sql = "INSERT INTO barang (no, nama, tgl, jk, alamat) VALUES ('1', 'Kemal Hamas', '1999-07-12', 'Laki-laki','Probolinggo');";
         db.execSQL(sql);
     }
 

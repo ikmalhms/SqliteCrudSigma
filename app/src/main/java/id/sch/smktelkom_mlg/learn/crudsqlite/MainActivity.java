@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void RefreshList() {
         SQLiteDatabase db = dbcenter.getReadableDatabase();
-        cursor = db.rawQuery("SELECT * FROM biodata", null);
+        cursor = db.rawQuery("SELECT * FROM barang", null);
         daftar = new String[cursor.getCount()];
         cursor.moveToFirst();
         for (int cc = 0; cc < cursor.getCount(); cc++) {
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3) {
                 final String selection = daftar[arg2]; //.getItemAtPosition(arg2).toString();
-                final CharSequence[] dialogitem = {"Lihat Biodata", "Update Biodata", "Hapus Biodata"};
+                final CharSequence[] dialogitem = {"Lihat Barang", "Update Barang", "Hapus Barang"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Pilihan");
                 builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case 2:
                                 SQLiteDatabase db = dbcenter.getWritableDatabase();
-                                db.execSQL("delete from biodata where nama = '" + selection + "'");
+                                db.execSQL("delete from barang where nama = '" + selection + "'");
                                 RefreshList();
                                 break;
                         }
